@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+android.ndkVersion = 20
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "com.theSmartWare.ColorBounce"
+        minSdkVersion 16
+        targetSdkVersion 29
+        multiDexEnabled true
+
+        ndk {
+            moduleName "player_shared"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
+    implementation 'com.google.android.gms:play-services-plus:17.0.0'
+    implementation 'com.google.android.gms:play-services-games:17.0.0'
+
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'com.google.android.gms:play-services-ads:17.2.0'
+}

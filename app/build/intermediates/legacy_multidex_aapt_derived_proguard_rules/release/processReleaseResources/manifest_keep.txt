@@ -1,0 +1,2 @@
+# Referenced at C:\Users\combo\Desktop\demo\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:51
+-keep class android.support.multidex.MultiDexApplication { <init>(); }
